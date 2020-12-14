@@ -6,7 +6,7 @@
 /*   By: jpauline <jpauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 18:29:27 by jpauline          #+#    #+#             */
-/*   Updated: 2020/12/14 15:11:00 by jpauline         ###   ########.fr       */
+/*   Updated: 2020/12/14 16:05:53 by jpauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*dest;
 	t_list	*start;
 
-	if (!lst || !f/* || !del*/)
+	if (!lst || !f)
 		return (NULL);
 	if (!(dest = ft_lstnew(f(lst->content))))
 		return (NULL);
@@ -28,8 +28,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		{
 			if (!(dest->next = ft_lstnew(f(lst->next->content))))
 			{
-				ft_lstclear(&start, del);
-				return (0);
+				if (del)
+					ft_lstclear(&start, del);
+				return (NULL);
 			}
 			dest = dest->next;
 		}
