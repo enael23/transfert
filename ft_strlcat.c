@@ -6,7 +6,7 @@
 /*   By: jpauline <jpauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 12:03:08 by jpauline          #+#    #+#             */
-/*   Updated: 2020/12/11 14:44:50 by jpauline         ###   ########.fr       */
+/*   Updated: 2020/12/14 14:29:42 by jpauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	j;
 	size_t	dstlen;
 	size_t	srclen;
-
-	dstlen = ft_strlen(dst);
+	
 	srclen = ft_strlen(src);
+	if (!dst)
+		return (size + srclen);
+	dstlen = ft_strlen(dst);
 	i = 0;
 	while (dst[i] && i < size)
 		i++;

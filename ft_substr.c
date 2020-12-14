@@ -6,7 +6,7 @@
 /*   By: jpauline <jpauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 13:56:34 by jpauline          #+#    #+#             */
-/*   Updated: 2020/12/07 14:01:04 by jpauline         ###   ########.fr       */
+/*   Updated: 2020/12/14 14:43:22 by jpauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	j;
 	char	*dest;
 
-	if (!s)
-		return (NULL);
-	dest = (char*)malloc(sizeof(*s) * len + 1);
+	dest = (char*)malloc(sizeof(char) * len + 1);
 	if (!dest)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i])
+	while (s && s[i])
 	{
 		if (i >= start && j < len)
 		{
