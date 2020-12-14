@@ -6,7 +6,7 @@
 /*   By: jpauline <jpauline@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:33:52 by jpauline          #+#    #+#             */
-/*   Updated: 2020/12/04 16:12:58 by jpauline         ###   ########.fr       */
+/*   Updated: 2020/12/14 13:39:45 by jpauline         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 
+	if (!dst || !src)
+		return (0);
 	i = 0;
 	if (size > 0)
 	{
